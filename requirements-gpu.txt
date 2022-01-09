@@ -4,3 +4,4 @@ absl-py
 matplotlib
 easydict
 pillow
+scipy
