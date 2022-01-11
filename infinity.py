@@ -23,7 +23,7 @@ while True:
             output_filename = f"processed_{now}"
             file_to_process= f"{DATA_DIR}/{file}"
 
-            os.system(f"python object_tracker.py --video {file_to_process} --output ./yolov4-deepsort/outputs/{output_filename}.avi --model yolov4 --dont_show --info")
+            os.system(f"python ./yolov4-deepsort/object_tracker.py --video {file_to_process} --output ./yolov4-deepsort/outputs/{output_filename}.avi --model yolov4 --dont_show --info")
 
         print("All new files are processed now.")
        
