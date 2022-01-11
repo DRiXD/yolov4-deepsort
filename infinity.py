@@ -22,8 +22,10 @@ while True:
             print(file)
             output_filename = f"processed_{now}"
             file_to_process= f"{DATA_DIR}/{file}"
-
-            os.system(f"conda activate yolov4-gpu && python ./yolov4-deepsort/object_tracker.py --video {file_to_process} --output ./yolov4-deepsort/outputs/{output_filename}.avi --model yolov4 --dont_show --info")
+            
+            os.system(f"CONDA_PATH=$(conda info | grep -i 'base environment' | awk '\{print $4\}') \
+            && . $CONDA_PATH/etc/profile.d/conda.sh \conda activate yolov4-gpu \
+            && python ./yolov4-deepsort/object_tracker.py --video {file_to_process} --output ./yolov4-deepsort/outputs/{output_filename}.avi --model yolov4 --dont_show --info")
 
         print("All new files are processed now.")
        
