@@ -22,8 +22,12 @@ while True:
             print(file)
             output_filename = f"processed_{now}"
             file_to_process= f"{DATA_DIR}/{file}"
-            
-            os.system(f"python ./object_tracker.py --video {file_to_process} --output ./outputs/{output_filename}.avi --model yolov4 --dont_show --info")
+            current_datetime = now.strftime("%d-%m-%Y_%H:%M:%S")
+            command = f"python ./object_tracker.py --video {file_to_process} --output ./outputs/processed_{current_datetime}.avi --model yolov4 --dont_show --info"
+            print(command)
+
+            os.system(command)
+            os.remove(os.path.join("", file_to_process))
 
         print("All new files are processed now.")
        
