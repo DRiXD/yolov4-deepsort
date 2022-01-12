@@ -1,17 +1,7 @@
-# !/bin/bash --login
-# The --login ensures the bash configuration is loaded,
-# enabling Conda.
+CONDA_PATH=$(conda info | grep -i 'base environment' | awk '{print $4}')
 
-# Enable strict mode.
-set -euo pipefail
-# ... Run whatever commands ...
+. $CONDA_PATH/etc/profile.d/conda.sh
 
-# Temporarily disable strict mode and activate conda:
-set +euo pipefail
-conda activate myenv
-
-# Re-enable strict mode:
-set -euo pipefail
-
-# exec the final command:
-exec python ./tmp/yolov4-deepsort/infinity.py
+conda activate yolov4-gpu
+ 
+python ./yolov4-deepsort/infinity.py
