@@ -229,6 +229,7 @@ def main(_argv):
         
         # if output flag is set, save video file
         if FLAGS.output:
+            print(f"AAAAAAAAAAAAAA Ouput video saved to: {out}")
             out.write(result)
         if cv2.waitKey(1) & 0xFF == ord('q'): break
     cv2.destroyAllWindows()
